@@ -17,9 +17,15 @@ namespace Test_20211109
         {
             InitializeComponent();
         }
+
+        public Form1(Banka banka)
+        {
+            this.banka = banka;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            Banka banka = new Banka("Lumír Lumírovec", 10000, 20000);
+            banka = new Banka("Lumír Lumírovec", 10000, 20000);
             lbl_Jmeno.Text = banka.Jmeno;
             lbl_Limit1.Text = banka.Limit1.ToString();
             lbl_Limit2.Text = banka.Limit2.ToString();
@@ -40,10 +46,25 @@ namespace Test_20211109
             lbl_Stav.Text = banka.Stav.ToString();
         }
 
-        private void txtBox_Limit1_TextChanged(object sender, EventArgs e)
+        private void btn_Limit2_Click(object sender, EventArgs e)
         {
-            int castka = int.Parse(txtBox_Limit1.Text);
-            
+            int castka = int.Parse(txtBox_Limity.Text);
+            banka.limit2(castka);
+            lbl_Limit2.Text = banka.Limit2.ToString();
+        }
+
+        private void btn_Platba_Click(object sender, EventArgs e)
+        {
+            int castka = int.Parse(txtBox_Castka.Text);
+            banka.platba(castka);
+            lbl_Stav.Text = banka.Stav.ToString();
+        }
+
+        private void btn_Limit1_Click(object sender, EventArgs e)
+        {
+            int castka = int.Parse(txtBox_Limity.Text);
+            banka.limit1(castka);
+            lbl_Limit1.Text = banka.Limit1.ToString();
         }
     }
 }
