@@ -25,6 +25,10 @@ namespace Test_20211109
             {
                 Stav += castka;
             }
+            else if(castka < 0)
+            {
+                MessageBox.Show("Nelze vložit záporná čísla");
+            }
             else
             {
                 MessageBox.Show("Nelze vložit více než 200000 Kč");
